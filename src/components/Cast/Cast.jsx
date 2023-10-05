@@ -1,0 +1,88 @@
+import { useEffect, useState , useParams  } from 'react';
+import { fetchSearchCast } from '../api';
+import {
+  ActorsImg,
+  CastItem,
+  CastList,
+  CastWrapper,
+  WikiLink,
+} from './Cast.styled';
+import { Loader } from 'components/Loader/Loader';
+import { animateScroll } from 'react-scroll';
+import default_image from '../image/8BE66998-501C-49F1-9662-857920C891B4.PNG';
+
+const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
+
+const Cast = () => {
+  const { movieId } = useParams();
+  const [cast, setCast] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(null);
+
+  useEffect(() => {
+    const abortController = new AbortController();
+    const getCast = async () => {
+      try {
+        setIsLoading(true);
+        setIsError(null);
+        const castInfo = await fetchSearchCast(movieId, {
+          signal: abortController.signal,
+        });
+        setCast(castInfo);
+      } catch (error) {
+        setIsError(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    getCast(movieId);
+    return () => {
+      abortController.abort();
+    };
+  }, [movieId]);
+
+  if (cast) {
+    animateScroll.scrollMore(640);
+  }
+
+  return (
+    <>
+      {isLoading && <Loader />}
+      {isError && <p>There is no information yet.</p>}
+      <CastWrapper>
+        <CastList>
+          {cast.map(({ id, profile_path, name, character }) => {
+            return (
+              <CastItem key={id}>
+                <WikiLink
+                  href={`https://ru.wikipedia.org/wiki/${name}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <ActorsImg
+                    src={
+                      profile_path ? IMAGE_URL + profile_path : default_image
+                    }
+                    alt={name}
+                    width={200}
+                    height={300}
+                  />
+                  <p>
+                    <b>Name: </b>
+                    {name}
+                  </p>
+                  <p>
+                    <b>Character: </b>
+                    {character}
+                  </p>
+                </WikiLink>
+              </CastItem>
+            );
+          })}
+        </CastList>
+      </CastWrapper>
+    </>
+  );
+};
+
+export default Cast;
