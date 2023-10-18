@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { NavLink } from 'react';
+import { NavLink } from 'react-router-dom';
 import { IoHomeSharp } from 'react-icons/io5';
 import { ImFilm } from 'react-icons/im';
 

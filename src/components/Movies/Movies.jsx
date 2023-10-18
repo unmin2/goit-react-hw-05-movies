@@ -1,9 +1,10 @@
-import { useState, useEffect ,useSearchParams } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Loader } from 'components/Loader/Loader';
 import { fetchSearchMovie } from '../api';
 import MoviesList from 'components/MoviesList/MoviesList';
 import SearchForm from 'components/SearchForm/SearchForm';
-import { Quotation } from '../Home/Home.styled';
+// import { Vie } from '../Home/Home.styled';
 
 
 const Movies = () => {
@@ -50,15 +51,8 @@ const Movies = () => {
       {isLoading && <Loader />}
       {isError && !isLoading && <p>No one movie</p>}
       <SearchForm />
-      <Quotation>
-        <strong>
-          Life
-          <br /> - is a series of choices.
-        </strong>
-        <br />
-        <span>Michelle Nostradamus</span>
-      </Quotation>
-      {movies && <MoviesList movies={movies} />}
+        {movies && <MoviesList movies={movies} />}
+  
     </>
   );
 };

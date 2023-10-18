@@ -1,5 +1,6 @@
 import { Loader } from '../Loader/Loader';
-import { Suspense , Outlet } from 'react';
+import { Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
 import {
   BtnList,
   Header,

@@ -1,4 +1,4 @@
-import { useSearchParams } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import {
   IconSearch,
   SearchBar,

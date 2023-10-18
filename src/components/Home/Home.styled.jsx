@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-
+export const Vie = styled.div`
+max-width: 100%;`
 export const PulsarTitle = styled.h1`
   margin: 30px 0 0 20px;
 
@@ -12,11 +13,7 @@ export const PulsarTitle = styled.h1`
   filter: saturate(60%);
 
   animation: flicker steps(100) var(--interval) 1000ms infinite;
-  color: azure;
-  --color1: azure;
-  --color2: aqua;
-  --color3: dodgerblue;
-  --color4: blue;
+  color: #eba4c0;
 
   @keyframes flicker {
     50% {

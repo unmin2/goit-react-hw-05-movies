@@ -1,6 +1,5 @@
-import { useLocation } from 'react';
+import { useLocation } from 'react-router-dom';
 import { MovieList, MovieItem, MovieLink } from './MoviesList.styled';
-import { CameraReels } from '../MovieDetails/MovieDetails.styled';
 
 const MoviesList = ({ movies }) => {
   const location = useLocation();
@@ -11,7 +10,6 @@ const MoviesList = ({ movies }) => {
         return (
           <MovieItem key={id}>
             <MovieLink to={`/movies/${id}`} state={{ from: location }}>
-              <CameraReels />
               {title || name}
             </MovieLink>
           </MovieItem>

@@ -39,11 +39,11 @@ const Home = () => {
       {isError && <p>Error loading movies. Please try again later.</p>}
       <Quotation>
         <strong>
-          Be yourself
-          <br /> - everyone else is already taken.
+          I hate even this moment that is passing. 
+          <br /> I guess we changed. I guess that’s how everything is.
         </strong>
         <br />
-        <span>Oscar Wilde</span>
+        <span>BTS</span>
       </Quotation>
       {!isLoading && movies.length > 0 && <MoviesList movies={movies} />}
     </>

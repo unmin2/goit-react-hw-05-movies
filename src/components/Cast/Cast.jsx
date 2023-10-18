@@ -1,4 +1,5 @@
-import { useEffect, useState , useParams  } from 'react';
+import { useEffect, useState } from 'react';
+import {useParams } from 'react-router-dom'
 import { fetchSearchCast } from '../api';
 import {
   ActorsImg,

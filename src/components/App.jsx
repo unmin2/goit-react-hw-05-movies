@@ -1,4 +1,5 @@
-import { Routes, Route , lazy} from 'react';
+import { lazy } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { GlobalStyle } from './GlobalStyle';
 import SharedLayout from './SharedLayout/SharedLayout';
 

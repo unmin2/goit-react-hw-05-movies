@@ -1,4 +1,5 @@
-import { useEffect, useState, useRef, Suspense , Outlet, useParams, useLocation} from 'react';
+import { useEffect, useState, useRef, Suspense } from 'react';
+import { Outlet, useParams, useLocation} from 'react-router-dom';
 import { fetchSearchDetail } from '../api';
 import { Loader } from '../Loader/Loader';
 import { BsCaretLeftFill } from 'react-icons/bs';

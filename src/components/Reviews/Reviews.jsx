@@ -1,4 +1,5 @@
-import { useEffect, useState ,useParams } from 'react';
+import { useEffect, useState} from 'react';
+import { useParams } from 'react-router-dom';
 import { fetchSearchReviews } from '../api';
 import { ReviewsWrapper, InfoBlock, InfoWrapper } from './Reviews.styled';
 import { Loader } from 'components/Loader/Loader';
